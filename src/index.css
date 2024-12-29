@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* font-family: 'Lato', sans-serif; */
+  font-family: "Nunito", serif;
+}
+.chewy{
+  font-family: "Chewy", serif;
+}
+.bg-img{
+  background-image: linear-gradient(to left, #1a1a1a5b, #37373794), url('../src/assets/Logo/bg-img.jpg');
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dancing{
+  font-family: "Dancing Script", serif;
+}
+.play-fair{
+  font-family: "Playfair Display", serif;
+}
+.sub-text{
+  font-family: "Ysabeau SC", serif;
+}
+.web-name{
+  background: #373737;
+  background: radial-gradient(circle farthest-corner at top center, #373737 0%, #C52546 50%, #373737 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
