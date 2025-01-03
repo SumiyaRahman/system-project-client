@@ -28,13 +28,10 @@ const AboutSection = () => {
       whileInView="visible"
       viewport={{ once: true }}
       variants={sectionVariants}
-      className="flex flex-col xl:flex-row items-center justify-between gap-12 px-8 py-16 max-w-7xl mx-auto"
+      className="flex flex-col xl:flex-row items-center justify-between gap-12 py-16"
     >
       {/* Left Side - Image */}
-      <motion.div
-        variants={imageVariants}
-        className="relative w-full xl:w-1/2"
-      >
+      <motion.div variants={imageVariants} className="relative w-full xl:w-1/2">
         <img
           src="https://img.freepik.com/free-photo/beautiful-brunette-woman-plays-with-two-shiba-inu-dogs-looks-away-thinks-how-feed-pets-teach-commands-expresses-caress-isolated-pink-background_273609-34195.jpg"
           className="rounded-lg shadow-xl w-full"
@@ -44,7 +41,10 @@ const AboutSection = () => {
 
       {/* Right Side - Text */}
       <motion.div variants={textVariants} className="w-full xl:w-1/2">
-        <h2 className="text-[#373737] text-3xl md:text-5xl">We Are Providing Pet Care</h2>
+        <h2 className="text-[#373737] text-3xl md:text-4xl">
+          Caring for Pets<span className="text-[#C52546]">,</span> Rescuing Lives
+        </h2>
+
         <p className="text-[#C52546] play-fair font-semibold tracking-widest text-xl md:text-2xl my-3">
           Service For Years
         </p>

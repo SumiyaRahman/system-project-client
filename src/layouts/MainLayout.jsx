@@ -120,7 +120,7 @@ const MainLayout = () => {
           <div className="flex justify-center items-center">
             <img className="w-24 md:w-16" src={logo} alt="Logo" />
             <div className="hidden md:block">
-              <p className="chewy text-2xl mb-0 tracking-[0.2rem] text-[#C52546]">
+              <p className="chewy text-2xl mb-0 tracking-[0.2rem] text-transparent bg-clip-text bg-gradient-to-r from-[#C52546] to-[#FCD34D]">
                 <span>Pawfect</span>
               </p>
             </div>
@@ -183,7 +183,7 @@ const MainLayout = () => {
             <>
               <Link
                 to="/register"
-                className="py-2 px-6 racking-[0.1rem] font-bold rounded bg-[#151515] text-white mr-2"
+                className="py-2 px-6 racking-[0.1rem] font-bold rounded bg-yellow-300 text-[#373737] mr-2"
               >
                 Register
               </Link>

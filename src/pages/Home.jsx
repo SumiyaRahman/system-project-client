@@ -2,6 +2,10 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import AboutSection from "../components/AboutSection";
+import StatsSection from "../components/StatsSection";
+import Services from "../components/services";
+import TestimonialSection from "../components/TestimonialSection";
+import ConsultationForm from "../components/ConsultationForm";
 
 const Home = () => {
   const controls = useAnimation();
@@ -31,7 +35,7 @@ const Home = () => {
           }}
           className="dancing text-4xl md:text-7xl font-extrabold text-white mb-4 tracking-wider text-center"
         >
-          Welcome to <span className="text-[#C52546]">Pawfect Haven!</span>
+          Welcome to <span className="text-[#C52546]">Pawfect</span> <span className="text-yellow-300">Haven!</span>
         </motion.h1>
 
         <motion.p
@@ -53,7 +57,13 @@ const Home = () => {
           we’re here to connect loving pets with caring families.
         </motion.p>
       </div>
-      <AboutSection></AboutSection>
+      <div className="max-w-7xl mx-auto space-y-[100px] px-5">
+        <AboutSection></AboutSection>
+        <Services></Services>
+        <TestimonialSection></TestimonialSection>
+        <StatsSection></StatsSection>
+        <ConsultationForm></ConsultationForm>
+      </div>
     </section>
   );
 };
