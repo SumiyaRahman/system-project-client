@@ -42,12 +42,14 @@ const AboutSection = () => {
       {/* Right Side - Text */}
       <motion.div variants={textVariants} className="w-full xl:w-1/2">
         <h2 className="text-[#373737] text-3xl md:text-4xl">
-          Caring for Pets<span className="text-[#C52546]">,</span> Rescuing Lives
+          Caring for Pets<span className="text-[#C52546]">,</span> Rescuing
+          Lives
         </h2>
 
-        <p className="text-[#C52546] play-fair font-semibold tracking-widest text-xl md:text-2xl my-3">
+        <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#C52546] to-[#FCD34D]  play-fair font-semibold tracking-widest text-xl md:text-2xl my-3">
           Service For Years
         </p>
+
         <p className="text-[#373737] text-sm md:text-base leading-[1.6rem] md:leading-[1.7rem] mt-5">
           Our passion is connecting loving families with their perfect furry
           companions. From cat adoption to dog rescue, we ensure safe and joyful

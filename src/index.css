@@ -17,7 +17,7 @@ body {
   font-family: "Chewy", serif;
 }
 .bg-img {
-  background-image: linear-gradient(to left, #1a1a1a5b, #37373794),
+  background-image: linear-gradient(to left, #c5254539, #fcd34d37),
     url("../src/assets/Logo/bg-img.jpg");
   width: 100%;
   height: 100vh;

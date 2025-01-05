@@ -8,14 +8,14 @@ const Services = () => {
       id: 1,
       icon: "🐾",
       title: "Animal Rescue",
-      description: "We ensure safe and compassionate rescues for animals in need.",
+      description:
+        "We ensure safe and compassionate rescues for animals in need.",
       modalContent: (
         <p>
           Our animal rescue process is dedicated to saving animals from
           dangerous situations, abandonment, and neglect. We work tirelessly to
           provide them with medical care, shelter, and a chance to find a
-          forever home. Whether it's rescuing stray dogs or injured wildlife,
-          we ensure a compassionate and safe recovery for every animal in need.
+          forever home.
         </p>
       ),
     },
@@ -23,13 +23,13 @@ const Services = () => {
       id: 2,
       icon: "😺",
       title: "Cat Adoption",
-      description: "Find your perfect feline companion and give them a loving home.",
+      description:
+        "Find your perfect feline companion and give them a loving home.",
       modalContent: (
         <p>
           Our cat adoption process is simple and rewarding. First, explore our
           catalog of adorable cats. Once you've found your match, fill out the
-          adoption form and schedule a meet-and-greet. After approval, your new
-          furry friend will be ready to join your family!
+          adoption form and schedule a meet-and-greet.
         </p>
       ),
     },
@@ -41,9 +41,7 @@ const Services = () => {
       modalContent: (
         <p>
           We provide a variety of high-quality pet food options tailored to
-          different breeds, sizes, and dietary needs. From grain-free options to
-          special diet formulas, your pets' health and happiness are our
-          priorities.
+          different breeds, sizes, and dietary needs.
         </p>
       ),
     },
@@ -56,7 +54,7 @@ const Services = () => {
         <p>
           Our grooming services include bathing, haircuts, nail trimming, and
           more. We ensure a stress-free and comfortable experience for your
-          pets, leaving them refreshed and looking fabulous!
+          pets.
         </p>
       ),
     },
@@ -82,7 +80,7 @@ const Services = () => {
         <p>
           Our pet training programs are designed to teach basic obedience,
           resolve behavioral issues, and strengthen the bond between you and
-          your furry friend. Start your training journey with us today!
+          your furry friend.
         </p>
       ),
     },
@@ -91,60 +89,48 @@ const Services = () => {
   // State for Modal
   const [activeService, setActiveService] = useState(null);
 
-  // Modal Animation Variants
-  const modalVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    exit: { opacity: 0, y: 50, transition: { duration: 0.3 } },
-  };
-
-  const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 0.5, transition: { duration: 0.3 } },
-    exit: { opacity: 0, transition: { duration: 0.3 } },
-  };
-
-  // Section Scroll Animation Variants
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.3 } },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
   return (
     <motion.section
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
-      variants={sectionVariants}
-      className="p-16 bg-gray-50"
+      className="p-16"
     >
       <div className="max-w-7xl mx-auto text-center">
-        <motion.h2
-          variants={cardVariants}
-          className="text-3xl font-bold text-[#373737] mb-4"
-        >
+        <h2 className="text-[#373737] text-3xl md:text-4xl mb-4">
           Our Services
-        </motion.h2>
-        <motion.p
-          variants={cardVariants}
-          className="text-gray-600 mb-12"
-        >
-          We provide a variety of services to ensure the best care for your pets.
-        </motion.p>
+        </h2>
+        <p className="text-gray-600 mb-12">
+          We provide a variety of services to ensure the best care for your
+          pets.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <motion.div
               key={service.id}
-              variants={cardVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
               className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
+              <motion.div
+                animate={{ y: [0, -10, 0] }} // Floating animation
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-4xl mb-4"
+              >
+                {service.icon}
+              </motion.div>
               <h3 className="text-xl font-semibold text-[#373737] mb-2">
                 {service.title}
               </h3>
@@ -161,44 +147,44 @@ const Services = () => {
       </div>
 
       {/* Modal */}
-      <AnimatePresence>
-        {activeService && (
-          <>
-            {/* Backdrop Animation */}
-            <motion.div
-              className="fixed inset-0 bg-black"
-              variants={backdropVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            ></motion.div>
+<AnimatePresence>
+  {activeService && (
+    <>
+      {/* Backdrop with Glass Effect */}
+      <motion.div
+        className="fixed inset-0 bg-gradient-to-r from-[#fcd34d30] to-[#c5254532] z-40 backdrop-blur-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      ></motion.div>
 
-            {/* Modal Animation */}
-            <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center"
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={modalVariants}
-            >
-              <div className="bg-white rounded-lg p-8 max-w-lg mx-auto text-center">
-                <h3 className="text-2xl font-bold text-[#373737] mb-4">
-                  {activeService.title}
-                </h3>
-                <div className="text-gray-600 mb-6">
-                  {activeService.modalContent}
-                </div>
-                <button
-                  onClick={() => setActiveService(null)}
-                  className="bg-[#C52546] text-white py-2 px-4 rounded hover:bg-red-600 transition"
-                >
-                  Close
-                </button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Modal Content with Glassmorphism */}
+      <motion.div
+        className="fixed inset-0 z-50 flex items-center justify-center"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="bg-white/50 backdrop-blur-lg rounded-lg p-8 max-w-lg mx-auto text-center">
+          <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-[#C52546] to-[#FCD34D] play-fair font-semibold tracking-widest text-xl md:text-2xl mb-4">
+            {activeService.title}
+          </h3>
+          <div className="text-gray-600 text-sm leading-[1.5rem] tracking-[0.01rem] mb-6">
+            {activeService.modalContent}
+          </div>
+          <button
+            onClick={() => setActiveService(null)}
+            className="bg-[#C52546] text-white py-2 px-4 rounded hover:bg-[#FCD34D] transition"
+          >
+            Close
+          </button>
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+
     </motion.section>
   );
 };
